@@ -1,13 +1,19 @@
 from multiprocessing import context
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Note
+from .forms import NoteForm
 
 def note_list_view(request):
+    form = NoteForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('note-list')
     to_do_list = Note.objects.filter(finished=False)
     finished_list = Note.objects.filter(finished=True)
     context={
         'to_do_list':to_do_list,
         'finished_list':finished_list,
+        'form':form,
     }
     return render(request, 'note_list.html', context)
 

@@ -6,6 +6,26 @@
         "title": "first",
         "due_date": "2022-09-30T16:32:16Z",
         "label": "D",
+        "finished": false
+    }
+},
+{
+    "model": "notes.note",
+    "pk": 3,
+    "fields": {
+        "title": "Новый таск",
+        "due_date": "2022-09-26T00:00:00Z",
+        "label": "P",
+        "finished": false
+    }
+},
+{
+    "model": "notes.note",
+    "pk": 4,
+    "fields": {
+        "title": "Еще один таск",
+        "due_date": "2022-10-03T00:00:00Z",
+        "label": "S",
         "finished": true
     }
 },
