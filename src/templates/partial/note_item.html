@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-body d-flex justify-content-between">
+        <h2>{{ note.title }} <span class="badge bg-{{ note.get_label_display }}">{{note.due_date}}</span></h2>
+        <div>
+            {% if type == "ADD" %}
+            <a href="{{ note.get_finish_item_url }}"><i class="fa-solid fa-check"></i></a>
+            {% else %}
+            <a href="{{ note.get_recover_item_url }}"><i class="fa-solid fa-times"></i></a>
+            {% endif %}
+            <a href="{{ note.get_delete_item_url }}"><i class="fa-solid fa-trash" style="color:red;"></i></a>
+        </div>
+    </div>
+</div>

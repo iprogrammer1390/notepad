@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Here are notes:</h1>
-    {% for note in notes %}
-        <p>{{ note.title }}</p>
-    {% endfor %}
-</body>
-
-</html>
+{% block content %}
+<h2 class="text-center mt-5">Actual List</h2>
+<hr>
+{% for note in to_do_list %}
+{% include 'partial/note_item.html' with note=note type="ADD" %}
+{% endfor %}
+<h2 class="text-center mt-5">Finished List</h2>
+<hr>
+{% for note in finished_list%}
+{% include 'partial/note_item.html' with note=note type="DELETE" %}
+{% endfor %}
+{% endblock content %}
